@@ -1,0 +1,40 @@
+<div className="chooserForm">
+    <div className="chooserForm__nameSelect">
+        <span className="chooserForm__round">1</span>
+        <span className="chooserForm__head" onClick={this.changeActiveForm.bind(this)} ref={ (span)=>{this.span = span}>Выберите тип блокнота</span>
+    </div>
+    <select className="chooserForm__formList" id="">
+        <option value="1" onClick={this.changeActiveForm.bind(this)} ref={ (option)=>{this.option = option} }>form01</option>
+        <option value="2" onClick={this.changeActiveForm.bind(this)} ref={ (option)=>{this.option = option} }>form02</option>
+        <option value="3" onClick={this.changeActiveForm.bind(this)} ref={ (option)=>{this.option = option} }>form03</option>
+    </select>
+</div>
+
+<div className="mainOptions">
+    <div className="mainOptions__nameSelect">
+        <span className="mainOptions__round">2</span>
+        <span className="mainOptions__head">Выберите опции</span>
+    </div>
+    <div className="chooserFormat">
+        <div className="chooserFormat__nameSelect">
+            <span className="chooserForm__head">Формат</span>
+        </div>
+        <select className="chooserFormat__formatList" id="">
+            <option value="A4">A4</option>
+            <option value="A5">A5</option>
+            <option value="A6">A6</option>
+        </select>
+    </div>
+    <div className="chooserNumberSheets">
+        <div className="chooserNumberSheets__nameSelect">
+            <span className="chooserNumberSheets__head">Количество листов</span>
+        </div>
+        <select className="chooserNumberSheets__formatList" id="">
+            <option value="NumberSheets_20">20</option>
+            <option value="NumberSheets_325">32</option>
+            <option value="NumberSheets_48">48</option>
+        </select>
+    </div>
+</div>
+
+onChange={this.changeActiveForm.bind(this)} ref={(select)=>{this.options = select.options}}
