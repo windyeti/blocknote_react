@@ -17,7 +17,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={history}>
+        <Router history={history} >
             <Route path="/" component={Layout}>
                 <IndexRoute component={Main}/>
                 <Route path="calc" component={Calc}/>

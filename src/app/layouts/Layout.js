@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import actionFetchForms from '../actions/actionFetchForms';
+import actionFetchSelects from '../actions/actionFetchSelects';
 import actionSetIdActiveForm from '../actions/actionSetIdActiveFrom';
-import { ARRAY_FORMS } from '../storeAge';
+import { data } from '../storeAge';
 
 import Menu from '../components/Menu';
 import MenuItem from '../components/MenuItem';
@@ -16,8 +16,11 @@ class Layout extends React.Component
     }
     componentDidMount()
     {
-        this.props.fetchForm(ARRAY_FORMS);
-        this.props.SetIdActiveForm(1);
+        const { idActiveForm } = data;
+        const { selects } = data;
+
+        this.props.fetchSelects(selects);
+        this.props.fetchIdActiveForm( idActiveForm );
     }
     is_active(href)
     {
@@ -51,11 +54,11 @@ export default connect(
 
     }),
     dispatch => ({
-        SetIdActiveForm : (idForm) => {
+        fetchIdActiveForm : (idForm) => {
             dispatch( actionSetIdActiveForm(idForm) )
         },
-        fetchForm : (array) => {
-            dispatch( actionFetchForms(array) )
+        fetchSelects : (arraySelects) => {
+            dispatch( actionFetchSelects(arraySelects) )
         }
     })
 )(Layout);

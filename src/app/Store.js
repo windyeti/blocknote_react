@@ -3,12 +3,12 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { routerReducer } from 'react-router-redux';
 
-import reducerGetForms from './reducers/reducerGetForms';
+import reducerGetSelects from './reducers/reducerGetSelects';
 import reducerSetIdActiveForm from './reducers/reducerSetIdActiveForm';
 
 const reducers = combineReducers({
     routing : routerReducer,
-    forms : reducerGetForms,
+    selects : reducerGetSelects,
     idActiveFrom : reducerSetIdActiveForm
     }
 );

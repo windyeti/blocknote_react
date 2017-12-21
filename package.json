@@ -20,7 +20,7 @@
     "react-redux": "^5.0.6",
     "react-router": "^3.2.0",
     "react-router-redux": "^4.0.8",
-    "redux": "^3.7.2",
+    "redux": "^3.4.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0"
   },
