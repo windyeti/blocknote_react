@@ -25,6 +25,7 @@ class Form01 extends React.Component
     }
     componentWillUpdate()
     {
+        console.log('Form01 update:');
     }
     render()
     {
@@ -60,7 +61,7 @@ class Form01 extends React.Component
                                     <span className="mainOptions__head">Выберите опции</span>
                                 </div>
 
-                                <Select { ...this.props.selects.find(select => select.name === 'chooserFormat') }/>
+                                <Select nameForm={"chooserFormat"}/>
 
                             </div>
                          </div>

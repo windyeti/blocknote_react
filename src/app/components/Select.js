@@ -9,7 +9,8 @@ class Select extends React.Component
     constructor()
     {
         super(...arguments);
-        this.indexSelectCurrent = null;
+        this.dataSelect = this.props.selects.find(select => select.name === this.props.nameForm);
+
     }
     componentWillUpdate()
     {
@@ -18,24 +19,29 @@ class Select extends React.Component
     updateStateSelects()
     {   const indexSelectedOption = this.select.options.selectedIndex;
         const valueSelectedOption = this.select.options[ indexSelectedOption ].value;
-        const selectCurrent = this.props.selects.find(select => select.name === this.props.name);
+        const selectCurrent = this.props.selects.find(select => select.name === this.props.nameForm);
+        console.log('до ',selectCurrent.value);
         selectCurrent.value = valueSelectedOption;
+        console.log('после ',selectCurrent.value);
 
         this.props.updateSelect( this.props.selects );
+
+        console.log('state ',this.props.selects);
+        console.log('value ',this.dataSelect.value);
     }
     render()
     {
-        const options = this.props.options.map( (option, index) => {
+        const options = this.dataSelect.options.map( (option, index) => {
             return <Option key = {index} {...option}/>
         });
 
-        return <div className={ this.props.name }>
-            <div className={ this.props.name + '__head' }>
-                { this.props.head + ' : ' + this.props.value}
+        return <div className={ this.dataSelect.name }>
+            <div className={ this.dataSelect.name + '__head' }>
+                { this.dataSelect.head + ' : ' + this.dataSelect.value}
             </div>
-            <select name={ this.props.name }
-                    id={ this.props.name }
-                    defaultValue={ this.props.value }
+            <select name={ this.dataSelect.name }
+                    id={ this.dataSelect.name }
+                    defaultValue={ this.dataSelect.value }
                     onChange={ this.updateStateSelects.bind(this) }
                     ref={(select)=>{this.select = select}}>
                 { options }

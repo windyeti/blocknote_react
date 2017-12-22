@@ -22,6 +22,10 @@ class Layout extends React.Component
         this.props.fetchSelects(selects);
         this.props.fetchIdActiveForm( idActiveForm );
     }
+    componentWillUpdate()
+    {
+        console.log('Layout UPDATE!!!');
+    }
     is_active(href)
     {
         return href === window.location.pathname;
@@ -51,7 +55,7 @@ class Layout extends React.Component
 }
 export default connect(
     state => ({
-
+        selects : state.selects.selects.filter(select => select.parentForm === state.idActiveFrom.idActiveForm)
     }),
     dispatch => ({
         fetchIdActiveForm : (idForm) => {
