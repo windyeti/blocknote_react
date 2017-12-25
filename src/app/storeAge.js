@@ -3,7 +3,7 @@ export const data = {
     selects : [
         {
             parentForm : 1,
-            name : 'chooserFormat',
+            name : 'chooserFormat_form1',
             head : 'Формат',
             value : 'A6',
             options : [
@@ -26,43 +26,49 @@ export const data = {
         },
         {
             parentForm : 1,
-            name : 'chooserNumberSheets',
+            name : 'chooserNumberSheets_form1',
             head : 'Количество листов',
-            value : 1,
+            value : '20',
             options : [
                 {
-                    value : 'NumberSheets_20',
-                    text : '20'
+                    value : '20',
+                    text : '20 листов'
 
                 },
                 {
-                    value : 'NumberSheets_32',
-                    text : '32'
+                    value : '32',
+                    text : '32 листа'
 
                 },
                 {
-                    value : 'NumberSheets_40',
-                    text : '40'
+                    value : '40',
+                    text : '40 листов'
 
                 },
             ]
         },
     ],
-    inputs : [
+    checkboxs : [
         {
+            parentForm : 1,
             type : 'checkbox',
-            name : 'numberOne',
-            labelText : 'Номер один'
+            name : 'red_form1',
+            labelText : 'Красная обложка',
+            checked : false
         },
         {
+            parentForm : 1,
             type : 'checkbox',
-            name : 'numberTwo',
-            labelText : 'Номер два'
+            name : 'cmyk_form1',
+            labelText : 'CMYK',
+            checked : false
         },
         {
+            parentForm : 1,
             type : 'checkbox',
-            name : 'numberThree',
-            labelText : 'Номер три'
+            name : 'varnish_form1',
+            labelText : 'Уф-лак',
+            checked : false
         }
     ]
 };

@@ -9,25 +9,25 @@ class Select extends React.Component
     constructor()
     {
         super(...arguments);
-        this.dataSelect = this.props.selects.find(select => select.name === this.props.nameForm);
+        this.dataSelect = this.props.selects.find(select => select.name === this.props.nameSelect);
 
     }
     componentWillUpdate()
     {
-        console.log('update');
+ // console.log('update');
     }
     updateStateSelects()
     {   const indexSelectedOption = this.select.options.selectedIndex;
         const valueSelectedOption = this.select.options[ indexSelectedOption ].value;
-        const selectCurrent = this.props.selects.find(select => select.name === this.props.nameForm);
-        console.log('до ',selectCurrent.value);
+        const selectCurrent = this.props.selects.find(select => select.name === this.props.nameSelect);
+        // console.log('до ',selectCurrent.value);
         selectCurrent.value = valueSelectedOption;
-        console.log('после ',selectCurrent.value);
+        // console.log('после ',selectCurrent.value);
 
         this.props.updateSelect( this.props.selects );
 
-        console.log('state ',this.props.selects);
-        console.log('value ',this.dataSelect.value);
+        // console.log('state ',this.props.selects);
+        // console.log('value ',this.dataSelect.value);
     }
     render()
     {
@@ -37,7 +37,7 @@ class Select extends React.Component
 
         return <div className={ this.dataSelect.name }>
             <div className={ this.dataSelect.name + '__head' }>
-                { this.dataSelect.head + ' : ' + this.dataSelect.value}
+                { this.dataSelect.head + ' : Должно update => ' + this.dataSelect.value}
             </div>
             <select name={ this.dataSelect.name }
                     id={ this.dataSelect.name }

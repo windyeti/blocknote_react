@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import actionSetIdActiveForm from '../actions/actionSetIdActiveFrom';
 import actionFetchSelects from '../actions/actionFetchSelects';
 
+import Lightbox01 from './Lightbox01';
 import Select from './Select';
+import Checkbox from './Checkbox';
 
 class Form01 extends React.Component
 {
     constructor()
     {
         super(...arguments);
-        // this.dataChooseForm = this.props.selects.find(select => select.name === 'chooserForm');
-        // console.log('dataChooseForm', this.dataChooseForm);
     }
     setIdActiveForm()
     {
@@ -20,18 +20,15 @@ class Form01 extends React.Component
     }
     componentWillMount()
     {
-        // console.log('this.props.selects Mount', this.props.selects);
-        // console.log('isActiveForm', this.props.idActive);
     }
     componentWillUpdate()
     {
-        console.log('Form01 update:');
     }
     render()
     {
         return <div>
                 <div className="col-md-4">
-                    Лайтбокс.
+                    <Lightbox01 activeForm = {this.props.idActive}/>
                 </div>
                 <div className="col-md-8">
                     <div className="col-md-12 head__form">
@@ -61,25 +58,19 @@ class Form01 extends React.Component
                                     <span className="mainOptions__head">Выберите опции</span>
                                 </div>
 
-                                <Select nameForm={"chooserFormat"}/>
+                                <Select nameSelect={"chooserFormat_form1"}/>
+                                <Select nameSelect={"chooserNumberSheets_form1"}/>
 
                             </div>
                          </div>
                         <div className="col-md-6">
                             <div className="extendOptions__head">Дополнительные опции</div>
-                            <div className="extendOptions__wrapper" ref={ (div) => {this.extendOptions = div }}>
-                                <div>
-                                    <input type="checkbox" name="checkbox1" id="checkbox1"/>
-                                    <label htmlFor="checkbox1">Метка один</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="checkbox2" id="checkbox2"/>
-                                    <label htmlFor="checkbox2">Метка два</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="checkbox3" id="checkbox3"/>
-                                    <label htmlFor="checkbox3">Метка три</label>
-                                </div>
+                            <div className="extendOptions__wrapper">
+
+                                <Checkbox nameCheckbox={"red_form1"}/>
+                                <Checkbox nameCheckbox={"cmyk_form1"}/>
+                                <Checkbox nameCheckbox={"varnish_form1"}/>
+
                             </div>
                         </div>
                     </form>
@@ -90,6 +81,7 @@ class Form01 extends React.Component
 export default connect(
     state => ({
         selects : state.selects.selects.filter(select => select.parentForm === state.idActiveFrom.idActiveForm),
+        checkboxs : state.checkboxs.checkboxs,
         idActive : state.idActiveFrom.idActiveForm
     }),
     dispatch => ({

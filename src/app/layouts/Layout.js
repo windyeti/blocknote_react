@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import actionFetchSelects from '../actions/actionFetchSelects';
+import actionFetchCheckboxs from '../actions/actionFetchCheckboxs';
 import actionSetIdActiveForm from '../actions/actionSetIdActiveFrom';
 import { data } from '../storeAge';
 
@@ -18,13 +19,15 @@ class Layout extends React.Component
     {
         const { idActiveForm } = data;
         const { selects } = data;
+        const { checkboxs } = data;
 
         this.props.fetchSelects(selects);
+        this.props.fetchCheckbox(checkboxs);
         this.props.fetchIdActiveForm( idActiveForm );
     }
     componentWillUpdate()
     {
-        console.log('Layout UPDATE!!!');
+        // console.log('Layout UPDATE!!!');
     }
     is_active(href)
     {
@@ -63,6 +66,9 @@ export default connect(
         },
         fetchSelects : (arraySelects) => {
             dispatch( actionFetchSelects(arraySelects) )
+        },
+        fetchCheckbox : (arrayCheckbox) => {
+            dispatch( actionFetchCheckboxs(arrayCheckbox) )
         }
     })
 )(Layout);

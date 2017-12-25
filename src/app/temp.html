@@ -38,3 +38,8 @@
 </div>
 
 onChange={this.changeActiveForm.bind(this)} ref={(select)=>{this.options = select.options}}
+
+<div>
+    <img src={`/images/blocknote_form${this.props.isActive}_
+         ${this.props.selects[0].value}_${this.props.selects[1].value}_${this.inputCkecked(this.props.checkboxs)}.png`}/>
+</div>;
