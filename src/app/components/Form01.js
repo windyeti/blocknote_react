@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import actionSetIdActiveForm from '../actions/actionSetIdActiveFrom';
 import actionFetchSelects from '../actions/actionFetchSelects';
+// import actionSetThumblainActive from '../actions/actionSetThumblainActive';
 
 import Lightbox01 from './Lightbox01';
 import Select from './Select';
@@ -46,9 +47,9 @@ class Form01 extends React.Component
                                         value={'1'}
                                         onChange={ this.setIdActiveForm.bind(this) }
                                         ref={(select)=>{this.chooserForm = select}}>
-                                    <option value="1">form01</option>
-                                    <option value="2">form02</option>
-                                    <option value="3">form03</option>
+                                    <option value="1">На пружине</option>
+                                    <option value="2">Дырокол</option>
+                                    <option value="3">На скрепке</option>
                                 </select>
                             </div>
 
@@ -58,6 +59,7 @@ class Form01 extends React.Component
                                     <span className="mainOptions__head">Выберите опции</span>
                                 </div>
 
+                                <Select nameSelect={"chooserСirculation_form1"}/>
                                 <Select nameSelect={"chooserFormat_form1"}/>
                                 <Select nameSelect={"chooserNumberSheets_form1"}/>
 

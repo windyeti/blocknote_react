@@ -3,6 +3,29 @@ export const data = {
     selects : [
         {
             parentForm : 1,
+            name : 'chooserСirculation_form1',
+            head : 'Тираж',
+            value : '500',
+            options : [
+                {
+                    value : '300',
+                    text : '300'
+
+                },
+                {
+                    value : '500',
+                    text : '500'
+
+                },
+                {
+                    value : '1000',
+                    text : '1000'
+
+                }
+            ]
+        },
+        {
+            parentForm : 1,
             name : 'chooserFormat_form1',
             head : 'Формат',
             value : 'A6',

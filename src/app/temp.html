@@ -43,3 +43,34 @@ onChange={this.changeActiveForm.bind(this)} ref={(select)=>{this.options = selec
     <img src={`/images/blocknote_form${this.props.isActive}_
          ${this.props.selects[0].value}_${this.props.selects[1].value}_${this.inputCkecked(this.props.checkboxs)}.png`}/>
 </div>;
+
+
+const thumbnails = [1,2,3].map( (item, ind) => <Thumbnail key={ind} src={`/images/blocknote_form${this.props.idActive}_${this.props.selects[1].value}_${this.props.selects[2].value}_${this.inputCheckingTrue(this.props.checkboxs)}-${item}.png`}/>);
+    return <div>
+        <img src={}/>
+        { thumbnails }
+    </div>;
+
+
+    isActiveThumbnail(ind)
+    {
+    if( ind === this.state.bigPic ) {
+    return "lightbox__thumbnail lightbox__thumbnail_active";
+    }
+    return "lightbox__thumbnail";
+    }
+    componentWillUpdate()
+    {
+    console.log('Lightbox update!!!');
+    }
+    render()
+    {
+    const path = "/images/blocknote_form" + this.props.idActive + "_" + this.props.selects[1].value + "_" + this.props.selects[2].value + "_" + this.inputCheckingTrue(this.props.checkboxs);
+    let thumbnails = [1,2,3].map( (item, ind) => <img className={ this.isActiveThumbnail(ind + 1) } key={ind} src={`${path}-${item}.png`} onClick={this.setIndBigPic.bind(this)}/>);
+    return <div>
+        <img src={`${path}-${this.state.bigPic}.png`} className="lightbox__bigPic"/>
+        <div className="lightbox__thumbnails">
+            { thumbnails }
+        </div>
+    </div>;
+    }

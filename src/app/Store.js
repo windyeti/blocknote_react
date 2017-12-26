@@ -6,12 +6,14 @@ import { routerReducer } from 'react-router-redux';
 import reducerGetSelects from './reducers/reducerGetSelects';
 import reducerGetCheckboxs from './reducers/reducerGetCheckboxs';
 import reducerSetIdActiveForm from './reducers/reducerSetIdActiveForm';
+import reducerSetThumbnail from './reducers/reducerSetThumblainActive';
 
 const reducers = combineReducers({
     routing : routerReducer,
     selects : reducerGetSelects,
     checkboxs : reducerGetCheckboxs,
-    idActiveFrom : reducerSetIdActiveForm
+    idActiveFrom : reducerSetIdActiveForm,
+    activeThumbnail : reducerSetThumbnail
     }
 );
 const middleware = applyMiddleware(thunk);
