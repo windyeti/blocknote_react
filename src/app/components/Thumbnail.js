@@ -29,6 +29,8 @@ class Thumbnail extends React.Component
     }
     render()
     {
+        const path = "/images/blocknote_form" + this.props.idActive + "_" + this.props.selects[1].value + "_" + this.props.selects[2].value + "_" + this.inputCheckingTrue(this.props.checkboxs);
+
         const thumbnails = [1,2,3].map(
             (item, ind) =>
                 <img className={ this.isActiveThumbnail(item) }

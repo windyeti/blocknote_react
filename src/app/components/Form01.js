@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import actionSetIdActiveForm from '../actions/actionSetIdActiveFrom';
 import actionFetchSelects from '../actions/actionFetchSelects';
-// import actionSetThumblainActive from '../actions/actionSetThumblainActive';
 
 import Lightbox01 from './Lightbox01';
 import Select from './Select';
