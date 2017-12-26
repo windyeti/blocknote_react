@@ -1,0 +1,22 @@
+.lightbox__thumbnails {
+    margin-top: 10px;
+}
+.lightbox__thumbnail {
+    cursor: pointer;
+    border: 1px solid black;
+    padding:5px;
+}
+.lightbox__thumbnail:hover {
+    border:4px solid gray;
+    -webkit-transform: all .5s;
+    -moz-transform: all .5s;
+    -ms-transform: all .5s;
+    -o-transform: all .5s;
+    transform: all .5s;
+}
+.lightbox__thumbnail_active {
+    border: 4px solid red;
+}
+.lightbox__thumbnail__img {
+    width: 100%;
+}

@@ -42,9 +42,9 @@ class Lightbox01 extends React.Component
     isActiveThumbnail(ind)
     {
         if( ind === this.state.bigPic ) {
-            return "lightbox__thumbnail lightbox__thumbnail_active";
+            return "lightbox__thumbnail lightbox__thumbnail_active col-xs-4";
         }
-        return "lightbox__thumbnail";
+        return "lightbox__thumbnail col-xs-4";
     }
     // setIndBigPic(e)
     // {
@@ -58,17 +58,22 @@ class Lightbox01 extends React.Component
         const path = "/images/blocknote_form" + this.props.idActive + "_" + this.props.selects[1].value + "_" + this.props.selects[2].value + "_" + this.inputCheckingTrue(this.props.checkboxs);
 
         const thumbnails = [1,2,3].map(
-            (item, ind) =>
-                <img className={ this.isActiveThumbnail(item) }
-                     key={ind} src={`${path}-${item}.png`}
-                     onClick={ this.setIndBigPic.bind(this) }
-                />);
+            (item, ind) => {
+                return <div className={ this.isActiveThumbnail(item) } key={ind} >
+                    <img className="lightbox__thumbnail__img"
+                         src={`${path}-${item}.png`}
+                         onClick={ this.setIndBigPic.bind(this) }/>
+                </div>
+            }
+        );
 
-        return <div className="lightbox__thumbnails">
+        return <div className="lightbox">
             <div className="lightbox__bigPic">
                 <img src={`${path}-${this.state.bigPic}.png`} className="lightbox__bigPic"/>
             </div>
-            { thumbnails }
+            <div className="lightbox__thumbnails">
+                { thumbnails }
+            </div>
         </div>;
     }
 }
