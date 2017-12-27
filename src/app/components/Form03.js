@@ -2,6 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import actionSetIdActiveForm from '../actions/actionSetIdActiveFrom';
+import actionFetchSelects from '../actions/actionFetchSelects';
+
+import Lightbox01 from './Lightbox01';
+import Select from './Select';
+import Checkbox from './Checkbox';
+import Cost from './Cost';
 
 class Form03 extends React.Component
 {
@@ -9,18 +15,21 @@ class Form03 extends React.Component
     {
         super(...arguments);
     }
-    SetIdActiveForm()
+    setIdActiveForm()
     {
-        this.props.onSetIdActiveForm( this.select.options[this.select.options.selectedIndex].value );
+        this.props.onSetIdActiveForm( this.chooserForm.options[this.chooserForm.options.selectedIndex].value );
     }
     componentWillMount()
+    {
+    }
+    componentWillUpdate()
     {
     }
     render()
     {
         return <div>
             <div className="col-md-4">
-                Лайтбокс.
+                <Lightbox01 activeForm = {this.props.idActive}/>
             </div>
             <div className="col-md-8">
                 <div className="col-md-12 head__form">
@@ -34,10 +43,13 @@ class Form03 extends React.Component
                                 <span className="chooserForm__round">1</span>
                                 <span className="chooserForm__head">Выберите тип блокнота</span>
                             </div>
-                            <select className="chooserForm__formList" value={'3'} onChange={this.SetIdActiveForm.bind(this)} ref={(select)=>{this.select = select}}>
-                                <option value="1">form01</option>
-                                <option value="2">form02</option>
-                                <option value="3">form03</option>
+                            <select className="chooserForm__formList"
+                                    value={'3'}
+                                    onChange={ this.setIdActiveForm.bind(this) }
+                                    ref={(select)=>{this.chooserForm = select}}>
+                                <option value="1">На пружине</option>
+                                <option value="2">Дырокол</option>
+                                <option value="3">На скрепке</option>
                             </select>
                         </div>
 
@@ -46,56 +58,41 @@ class Form03 extends React.Component
                                 <span className="mainOptions__round">2</span>
                                 <span className="mainOptions__head">Выберите опции</span>
                             </div>
-                            <div className="chooserFormat">
-                                <div className="chooserFormat__nameSelect">
-                                    <span className="chooserForm__head">Формат</span>
-                                </div>
-                                <select className="chooserFormat__formatList" id="">
-                                    <option value="A4">A4</option>
-                                    <option value="A5">A5</option>
-                                    <option value="A6">A6</option>
-                                </select>
-                            </div>
-                            <div className="chooserNumberSheets">
-                                <div className="chooserNumberSheets__nameSelect">
-                                    <span className="chooserNumberSheets__head">Количество листов</span>
-                                </div>
-                                <select className="chooserNumberSheets__formatList" id="">
-                                    <option value="NumberSheets_20">20</option>
-                                    <option value="NumberSheets_325">32</option>
-                                    <option value="NumberSheets_48">48</option>
-                                </select>
-                            </div>
+
+                            <Select nameSelect={"chooserСirculation_form3"}/>
+                            <Select nameSelect={"chooserFormat_form3"}/>
+                            <Select nameSelect={"chooserNumberSheets_form3"}/>
+
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="extendOptions__head">Дополнительные опции</div>
-                        <div>
-                            <input type="checkbox" name="checkbox1" id="checkbox1"/>
-                            <label htmlFor="checkbox1">Метка один</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="checkbox2" id="checkbox2"/>
-                            <label htmlFor="checkbox2">Метка два</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="checkbox3" id="checkbox3"/>
-                            <label htmlFor="checkbox3">Метка три</label>
+                        <div className="extendOptions__wrapper">
+
+                            <Checkbox nameCheckbox={"color_form3"}/>
+                            <Checkbox nameCheckbox={"cmyk_form3"}/>
+                            <Checkbox nameCheckbox={"varnish_form3"}/>
+
                         </div>
                     </div>
                 </form>
+                <Cost/>
             </div>
         </div>
     }
 }
 export default connect(
     state => ({
-        form : state.forms.arrayForms.find(form => form.id === state.idActiveFrom.idActiveForm),
+        selects : state.selects.selects.filter(select => select.parentForm === state.idActiveFrom.idActiveForm),
+        checkboxs : state.checkboxs.checkboxs,
         idActive : state.idActiveFrom.idActiveForm
     }),
     dispatch => ({
         onSetIdActiveForm : (idNewActiveForm) => {
             dispatch( actionSetIdActiveForm(idNewActiveForm) )
+        },
+        fetchForm : (array) => {
+            dispatch( actionFetchSelects(array) )
         }
     })
 )(Form03);

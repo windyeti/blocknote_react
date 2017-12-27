@@ -37,7 +37,7 @@ class Select extends React.Component
 
         return <div className={ this.dataSelect.name }>
             <div className={ this.dataSelect.name + '__head' }>
-                { this.dataSelect.head + ' : Должно update => ' + this.dataSelect.value}
+                { this.dataSelect.head }
             </div>
             <select name={ this.dataSelect.name }
                     id={ this.dataSelect.name }

@@ -69,7 +69,7 @@ class Form01 extends React.Component
                             <div className="extendOptions__head">Дополнительные опции</div>
                             <div className="extendOptions__wrapper">
 
-                                <Checkbox nameCheckbox={"red_form1"}/>
+                                <Checkbox nameCheckbox={"color_form1"}/>
                                 <Checkbox nameCheckbox={"cmyk_form1"}/>
                                 <Checkbox nameCheckbox={"varnish_form1"}/>
 

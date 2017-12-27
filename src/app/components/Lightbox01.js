@@ -32,13 +32,6 @@ class Lightbox01 extends React.Component
             bigPic : ind
         })
     }
-    componentWillUpdate()
-    {
-        console.log('Lightbox update!!!');
-    }
-    componentWillMount()
-    {
-    }
     isActiveThumbnail(ind)
     {
         if( ind === this.state.bigPic ) {
@@ -46,13 +39,6 @@ class Lightbox01 extends React.Component
         }
         return "lightbox__thumbnail col-xs-4";
     }
-    // setIndBigPic(e)
-    // {
-    //     let ind = Number( e.target.src.split('-')[1].split('.')[0] );
-    //     console.log('ind', ind);
-    //     this.props.setThumblainActive(ind);
-    //
-    // }
     render()
     {
         const path = "/images/blocknote_form" + this.props.idActive + "_" + this.props.selects[1].value + "_" + this.props.selects[2].value + "_" + this.inputCheckingTrue(this.props.checkboxs);
