@@ -1,0 +1,11 @@
+.cost__head {
+    font-size: 150%;
+    color: gray;
+    text-align: right;
+    line-height: 300%;
+    text-transform: uppercase;
+}
+.cos__amount {
+    border:1px solid rgb(208, 108, 92);
+    padding: 10px;
+}

@@ -7,6 +7,7 @@ import actionFetchSelects from '../actions/actionFetchSelects';
 import Lightbox01 from './Lightbox01';
 import Select from './Select';
 import Checkbox from './Checkbox';
+import Cost from './Cost';
 
 class Form01 extends React.Component
 {
@@ -75,6 +76,7 @@ class Form01 extends React.Component
                             </div>
                         </div>
                     </form>
+                    <Cost/>
                  </div>
         </div>
     }
