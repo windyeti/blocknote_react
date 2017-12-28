@@ -13,7 +13,7 @@ class Lightbox01 extends React.Component
     inputCheckingTrue(arr)
     {
         let newArr = arr.filter(item => {
-            if( item.name === 'varnish_form1') {
+            if( item.name === 'varnish_form1' || item.name === 'varnish_form2' || item.name === 'varnish_form3') {
                 return false;
             }
             return item.checked;
@@ -66,7 +66,7 @@ class Lightbox01 extends React.Component
 export default connect(
     state => ({
         selects : state.selects.selects.filter(select => select.parentForm === state.idActiveFrom.idActiveForm),
-        checkboxs : state.checkboxs.checkboxs,
+        checkboxs : state.checkboxs.checkboxs.filter(select => select.parentForm === state.idActiveFrom.idActiveForm),
         idActive : state.idActiveFrom.idActiveForm
     }),
     dispatch => ({

@@ -14,6 +14,7 @@ class Cost extends React.Component
     }
     render()
     {
+        console.log('this.props.checkboxs', this.props.checkboxs);
         return <div className="cost col-md-12">
             <div className="cost__head col-md-6">Стоимость тиража:</div>
             <div className="cos__amount col-md-6">{ this.cost() }</div>
@@ -23,7 +24,7 @@ class Cost extends React.Component
 export default connect(
     state => ({
         selects : state.selects.selects.filter(select => select.parentForm === state.idActiveFrom.idActiveForm),
-        checkboxs : state.checkboxs.checkboxs,
+        checkboxs : state.checkboxs.checkboxs.filter(select => select.parentForm === state.idActiveFrom.idActiveForm),
         idActive : state.idActiveFrom.idActiveForm
     }),
     dispatch => ({})
